@@ -10,8 +10,8 @@ info = Blueprint(
     "info", __name__, static_folder="../static", template_folder="../templates/"
 )
 
-api_key_holiday = "14ae356bbffb49c58651e72ef87dbf32"
-api_key = "1cf4a33bf5ed0e1005a61cb94eded3af"
+api_key_holiday = os.getenv("ABSTRACT_HOLIDAY_API_KEY")
+api_key = os.getenv("OPENWEATHER_API_KEY")
 
 
 @info.route("/info", methods=["get", "post"])
@@ -27,7 +27,7 @@ def infos():
 
 @info.route("/formulaire", methods=["get", "post"])
 def formulaire():
-    api_key_holiday = os.getenv("api_key_holiday")
+    api_key_holiday = os.getenv("ABSTRACT_HOLIDAY_API_KEY")
     hours = request.form["hour"]
     date = request.form["date"]
     temp = request.form["temp"]

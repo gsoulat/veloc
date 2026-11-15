@@ -1,5 +1,6 @@
 #!/usr/local/bin/python
 import json
+import os
 import pickle
 import time
 
@@ -80,8 +81,8 @@ list_weather4 = [
     "tornado",
 ]
 
-api_key_holiday = "14ae356bbffb49c58651e72ef87dbf32"
-api_key = "1cf4a33bf5ed0e1005a61cb94eded3af"
+api_key_holiday = os.getenv("ABSTRACT_HOLIDAY_API_KEY")
+api_key = os.getenv("OPENWEATHER_API_KEY")
 
 
 @home.route("/")
